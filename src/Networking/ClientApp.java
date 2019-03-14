@@ -1,11 +1,12 @@
 package Networking;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class ClientApp {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		int variationNr=1;
 		int variationCounter; //Cik bus aizpilditi
 		int variationsManually; //Cik bus aizpilditi varianti manuali
@@ -102,5 +103,14 @@ public class ClientApp {
 		else {
 			System.out.println("== "+variationCounter+" varianti aizsutiti uz serveri ==");
 		}
+		
+		//Ievieto variacijas datubaze
+		ActionsWithDB db = new ActionsWithDB();
+		db.createConnection();
+		db.createTableForVariations();
+		for(Variation variation : userVariations) {
+			db.insertNewRecord(variation);
+		}
+		db.endConnection();
 	}
 }

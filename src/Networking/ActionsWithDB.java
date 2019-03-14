@@ -22,14 +22,14 @@ static Connection connect=null;
 	public void createTableForVariations() throws SQLException {
 		Statement statement=connect.createStatement();
 		String sql="CREATE TABLE IF NOT EXISTS VariationDB("+
-		"id INTEGER nut null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"+
-		"variationNumber INTEGER,"+
-		"email VARCHAR(255),"+
-		"variationFirstNumber INTEGER,"+
-		"variationSecondNumber INTEGER,"+
-		"variationThirdNumber INTEGER,"+
-		"variationFourthNumber INTEGER,"+
-		"variationFifthNumber INTEGER);";
+				"id INTEGER not null primary key autoincrement,"+
+				"variationNumber INTEGER,"+
+				"email VARCHAR(255),"+
+				"variationFirstNumber INTEGER,"+
+				"variationSecondNumber INTEGER,"+
+				"variationThirdNumber INTEGER,"+
+				"variationFourthNumber INTEGER,"+
+				"variationFifthNumber INTEGER);";
 		statement.executeUpdate(sql);
 		statement.close();
 		System.out.println("Table created successfully");
@@ -37,7 +37,7 @@ static Connection connect=null;
 	
 	public void insertNewRecord(Variation var) throws SQLException{
 		Statement statement=connect.createStatement();
-		statement.executeUpdate("INSERT INTO VariationDB(id, variationNumber, email, variationFirstNumber, variationSecondNumber, variationThirdNumber, variationFourthNumber, variationFifthNumber)"+
+		statement.executeUpdate("INSERT INTO VariationDB(variationNumber, email, variationFirstNumber, variationSecondNumber, variationThirdNumber, variationFourthNumber, variationFifthNumber)"+
 		"VALUES("+var.getVariationNr()+", '"+var.getEmail()+"', "+var.getSelectedNumbers().get(0)+", "+var.getSelectedNumbers().get(1)+", "+var.getSelectedNumbers().get(2)+", "+var.getSelectedNumbers().get(3)+", "+var.getSelectedNumbers().get(4)+")");
 		statement.close();
 	}
