@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="D:/Desktop/Java_kursa_darbs/Electricity_management_system/kryonet-2.21-all.jar"/>
+	<classpathentry kind="lib" path="D:/Desktop/Java_kursa_darbs/Electricity_management_system/sqlite-jdbc-3.8.11.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
